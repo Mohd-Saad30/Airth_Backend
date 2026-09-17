@@ -1,0 +1,17 @@
+// use prisma-8
+
+
+enum JobStatus {
+  pending
+  running
+  completed
+  failed
+}
+
+model Job {
+  id        String    @id @default(uuid())
+  title     String
+  type      String
+  status    JobStatus @default(pending)
+  createdAt DateTime  @default(now())
+}
